@@ -81,8 +81,6 @@ Some other cool rofi menus:
 * [pandozer's rofi-clipboard-manager](https://bitbucket.org/pandozer/rofi-clipboard-manager/src/master/)
 
 ## Meta
-Marius Cramer – marcramer@pm.me
-
-Distributed under the XYZ license. See ``LICENSE`` for more information.
+Marius Cramer – marcramer[at]pm[dot]me
 
 [cramermarius/rofi-menu](https://github.com/cramermarius/rofi-menus/)
