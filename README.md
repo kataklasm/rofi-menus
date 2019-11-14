@@ -9,6 +9,7 @@ A small collection of rofi scripts to manage some basic utilities:
 ![](screens/header.png)
 
 ## Prerequisites
+* rofi
 * scrot (only if you want to use `scrotmenu.sh`)
 * i3lock-fancy (although this can be omitted if you remove the line from `powermenu.sh` or use another locker)
 * i3 (just needed for `i3layoutmenu.sh`)
@@ -64,6 +65,20 @@ directory called something along the lines of `max-brightness`, in it you will f
 monitors maximum brightness setting. This number will have to be set in the `$option4` (or
 max) option, the rest of the options are just numbers I (or you) feel comfortable with, so
 just experiment around a bit with those.
+
+## Screenshots
+![](screens/powermenu.png)
+![](screens/scrotmenu.png)
+![](screens/xrandrmenu.png)
+![](screens/brightnessmenu.png)
+![](screens/i3layoutmenu.png)
+
+## Acknowledgment
+I took inspiration for this from [vahnrr](gitlab.com/vahnrr/rofi-menus)
+
+Some other cool rofi menus:
+* [vahnrr's rofi-menus](gitlab.com/vahnrr/rofi-menus)
+* [pandozer's rofi-clipboard-manager](https://bitbucket.org/pandozer/rofi-clipboard-manager/src/master/)
 
 ## Meta
 Marius Cramer – marcramer@pm.me
