@@ -1,4 +1,4 @@
 #!/bin/sh
 
-~/dotfiles/rofi/scripts/powermenu.sh
+~/.config/rofi/scripts/powermenu.sh
 

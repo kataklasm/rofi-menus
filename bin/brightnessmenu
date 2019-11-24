@@ -1,4 +1,4 @@
 #!/bin/sh
 
-~/dotfiles/rofi/scripts/brightnessmenu.sh
+~/.config/rofi/scripts/brightnessmenu.sh
 
