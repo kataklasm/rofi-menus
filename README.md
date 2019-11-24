@@ -23,7 +23,11 @@ A small collection of rofi scripts to manage some basic utilities:
 
 `sudo mkdir -p /usr/local/bin/`
 
-`cp bins/* /usr/local/bin/`
+`mkdir ~/.config/rofi/scripts/`
+
+`cp scripts/* ~/.config/rofi/scripts/`
+
+`cp bin/* /usr/local/bin/`
 
 `sudo chown <username> /usr/local/bin/*menu`
 
