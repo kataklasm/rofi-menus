@@ -1,90 +1,114 @@
 # rofi-menus
-A small collection of rofi scripts to manage some basic utilities: 
-* shutdown menu
-* screen brightness menu
-* xrandr menu
-* scrot menu
-* i3layout
+A small collection of rofi scripts to manage:
+* shutting down
+* screen brightness
+* some xrandr settings
+* scrot functions
+* i3 layouts
 ---
 ![](screens/header.png)
 
 ## Prerequisites
 * rofi
-* scrot (only if you want to use `scrotmenu.sh`)
-* i3lock-fancy (although this can be omitted if you remove the line from `powermenu.sh` or use another locker)
-* i3 (just needed for `i3layoutmenu.sh`)
+* scrot (only needed for scrotmenu)
+* i3lock (only needed for powermenu, can be omitted or substituted for another screen locker)
+* i3 (needed for i3layout)
+* `systemctl` (systemd)
 
-## Installation
-`git clone https://github.com/cramermarius/rofi-menus/`
-
-`cd rofi-menus`
-
-`chmod +x scripts/*`
-
+# installation
+`mkdir -p ~/.config/rofi/scripts/ && cd ~/.config/rofi/scripts/`
 `sudo mkdir -p /usr/local/bin/`
+`git clone https://github.com/cramermarius/rofi-menus menus/`
+`cd menus`
 
-`mkdir ~/.config/rofi/scripts/`
+## to install all scripts
+`chmod +x bin/* scripts/*`
+`sudo cp bin/* /usr/local/bin/`
+`sudo chown <username> /usr/local/bin/*menu/`
 
-`cp scripts/* ~/.config/rofi/scripts/`
+## to install scripts one-by-one
+### brightnessmenu
+`chmod +x bin/brightnessmenu scripts/brightnessmenu`
+`sudo cp bin/brightnessmenu /usr/local/bin`
+`sudo chown <username> /usr/local/bin/brightnessmenu`
 
-`cp bin/* /usr/local/bin/`
+### i3layout
+`chmod +x bin/i3layout scripts/i3layout`
+`sudo cp bin/i3layout /usr/local/bin`
+`sudo chown <username> /usr/local/bin/i3layout`
 
-`sudo chown <username> /usr/local/bin/*menu`
+### powermenu
+`chmod +x bin/powermenu scripts/powermenu`
+`sudo cp bin/powermenumenu /usr/local/bin`
+`sudo chown <username> /usr/local/bin/powermenu`
 
-`sudo chmod +x /usr/local/bin/*menu`
+### scrotmenu
+`chmod +x bin/scrotmenu scripts/scrotmenu`
+`sudo cp bin/scrotmenu /usr/local/bin`
+`sudo chown <username> /usr/local/bin/scrotmenu`
+
+### xrandrmenu
+`chmod +x bin/xrandrmenu scripts/xrandrmenu`
+`sudo cp bin/xrandrmenu /usr/local/bin`
+`sudo chown <username> /usr/local/bin/xrandrmenu`
 
 ## Usage
-If you follow the installation completely, you will not only have downloaded the scripts
-themselves, but also bound them to a command so you can easily call them from the
-terminal or bind them to a keybind in you WM or DE configuration.
+Because you copied some copied the contents of bin/ you can call these menus by simply
+typing `<++>menu` in your terminal
+You could also bind them to keybinds in your WM or DE, for i3 my binds are:
 
-So you can either call the rofi menus by calling their commands in a terminal, like so:
-
-```powermenu``` or ```scrotmenu```.
-
-<br>
-
-Since I use i3, here are my binds concerning these menus:
 ```
-bindsym Mod4+Shift+p exec powermenu
+bindsym Mod4+Shift+x exec powermenu
 bindsym F7 exec xrandrmenu
 bindsym Control+F7 exec i3layoutmenu
-bindsym F10 exec scrotmenu 
+bindsym F10 exec scrotmenu
 ```
+## Setup
+### brightnessmenu
+`cat /sys/class/backlight/intel_backlight/max_brightness`
+The integer that will get printed in the terminal is the number you need to put into
+~/.config/rofi/scripts/menus/scripts/brightnessmenu.sh. in the lines you will see some
+placeholder tags: <x%>, you will need to calculate the percentage of your max_brightness.
+For me this would be: 416 * 0.02 for the 1st option or 416 * 0.6 for the 4th option. Now
+the script should work normally. Keep in mind you will need sudo permissions for executing
+this script as we are editing a system file.
 
-## Configuration
-If you have i3 installed `i3layoutmenu.sh` should work out of the box.<br>
-If you have scrot installed `scrotmenu.sh` should work out of the box.<br>
-If you have xrandr installed `xrandrmenu.sh` should work out of the box.<br>
-If you have i3 (and i3lock-fancy) as well as systemd `powermenu.sh` should work out of the
-box.<br>
+### i3layoutmenu
+This script should work out of the box if you are using i3.
 
-In any case, with some light tinkering you can get all those menus to work with your
-system configuration, just swap out the specific commands. If you encounter any hurdles,
-feel free to open a GitHub issue.
+### powermenu
+This should work out of the box as well, assuming you are using i3 for the lock and logout
+options, everything else should work as long as you have systemd. In case you want to use
+i3lock with options as a colored background you can just add the flag to the command If
+you don't have i3 you can easily swap out `i3lock` and `i3-msg exit` for something else.
+You can also edit the sleep times for option 3 to 5 if you feel the need to.
 
-`brightnessmenu.sh` is where things might go sour for OOTB-compatibility. You will need to
-change the path to your specific `brightness` file, there should also be file in the same
-directory called something along the lines of `max-brightness`, in it you will find your
-monitors maximum brightness setting. This number will have to be set in the `$option4` (or
-max) option, the rest of the options are just numbers I (or you) feel comfortable with, so
-just experiment around a bit with those.
+### scrotmenu
+If you have scrot installed this should work out of the box too. Keep in mind you
+might want to edit the save locations for the command by editing the `cd` command
+locations. 
+
+### xrandrmenu
+To configure xrandrmenu first make sure you have xrandr installed. Now type `xrandr` in
+your terminal and look for the monitor names in the output. For me it is eDP-1 for my
+laptop monitor and DP-1 for my external monitor. Now just replace <monitor0> in the
+xrandrmenu.sh script with whatever output you like.
 
 ## Screenshots
+![](screens/brightnessmenu.png)
+![](screens/i3layoutmenu.png)
 ![](screens/powermenu.png)
 ![](screens/scrotmenu.png)
 ![](screens/xrandrmenu.png)
-![](screens/brightnessmenu.png)
-![](screens/i3layoutmenu.png)
 
 ## Acknowledgment
-I took inspiration for this from [vahnrr](gitlab.com/vahnrr/rofi-menus)
+I took great inspiration for this from [vahnrr](gitlab.com/vahnrr/rofi-menus)
 
 Some other cool rofi menus:
 * [vahnrr's rofi-menus](gitlab.com/vahnrr/rofi-menus)
-* [pandozer's rofi-clipboard-manager](https://bitbucket.org/pandozer/rofi-clipboard-manager/src/master/)
+* [pandozer's rofi-clipboard-manager](bitbucket.org/pandozer/rofi-clipboard-manager)
 
 ## Meta
 Marius Cramer – marcramer[at]pm[dot]me
 
-[cramermarius/rofi-menu](https://github.com/cramermarius/rofi-menus/)
+[cramermarius/rofi-menus](github.com/cramermarius/rofi-menus)
