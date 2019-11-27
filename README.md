@@ -15,7 +15,7 @@ A small collection of rofi scripts to manage:
 * i3 (needed for i3layout)
 * `systemctl` (systemd)
 
-# installation
+## Installation
 ```
 mkdir -p ~/.config/rofi/scripts/ && cd ~/.config/rofi/scripts/
 sudo mkdir -p /usr/local/bin/
