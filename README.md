@@ -16,41 +16,55 @@ A small collection of rofi scripts to manage:
 * `systemctl` (systemd)
 
 # installation
-`mkdir -p ~/.config/rofi/scripts/ && cd ~/.config/rofi/scripts/`
-`sudo mkdir -p /usr/local/bin/`
-`git clone https://github.com/cramermarius/rofi-menus menus/`
-`cd menus`
+```
+mkdir -p ~/.config/rofi/scripts/ && cd ~/.config/rofi/scripts/
+sudo mkdir -p /usr/local/bin/
+git clone https://github.com/cramermarius/rofi-menus menus/
+cd menus
+```
 
 ## to install all scripts
-`chmod +x bin/* scripts/*`
-`sudo cp bin/* /usr/local/bin/`
-`sudo chown <username> /usr/local/bin/*menu/`
+```
+chmod +x bin/* scripts/*
+sudo cp bin/* /usr/local/bin/
+sudo chown <username> /usr/local/bin/*menu/
+```
 
 ## to install scripts one-by-one
 ### brightnessmenu
-`chmod +x bin/brightnessmenu scripts/brightnessmenu`
-`sudo cp bin/brightnessmenu /usr/local/bin`
-`sudo chown <username> /usr/local/bin/brightnessmenu`
+```
+chmod +x bin/brightnessmenu scripts/brightnessmenu
+sudo cp bin/brightnessmenu /usr/local/bin
+sudo chown <username> /usr/local/bin/brightnessmenu
+```
 
 ### i3layout
-`chmod +x bin/i3layout scripts/i3layout`
-`sudo cp bin/i3layout /usr/local/bin`
-`sudo chown <username> /usr/local/bin/i3layout`
+```
+chmod +x bin/i3layout scripts/i3layout
+sudo cp bin/i3layout /usr/local/bin
+sudo chown <username> /usr/local/bin/i3layout
+```
 
 ### powermenu
-`chmod +x bin/powermenu scripts/powermenu`
-`sudo cp bin/powermenumenu /usr/local/bin`
-`sudo chown <username> /usr/local/bin/powermenu`
+```
+chmod +x bin/powermenu scripts/powermenu
+sudo cp bin/powermenumenu /usr/local/bin
+sudo chown <username> /usr/local/bin/powermenu
+```
 
 ### scrotmenu
-`chmod +x bin/scrotmenu scripts/scrotmenu`
-`sudo cp bin/scrotmenu /usr/local/bin`
-`sudo chown <username> /usr/local/bin/scrotmenu`
+```
+chmod +x bin/scrotmenu scripts/scrotmenu
+sudo cp bin/scrotmenu /usr/local/bin
+sudo chown <username> /usr/local/bin/scrotmenu
+```
 
 ### xrandrmenu
-`chmod +x bin/xrandrmenu scripts/xrandrmenu`
-`sudo cp bin/xrandrmenu /usr/local/bin`
-`sudo chown <username> /usr/local/bin/xrandrmenu`
+```
+chmod +x bin/xrandrmenu scripts/xrandrmenu
+sudo cp bin/xrandrmenu /usr/local/bin
+sudo chown <username> /usr/local/bin/xrandrmenu
+```
 
 ## Usage
 Because you copied some copied the contents of bin/ you can call these menus by simply
@@ -65,14 +79,14 @@ bindsym F10 exec scrotmenu
 ```
 ## Setup
 ### brightnessmenu
-`cat /sys/class/backlight/intel_backlight/max_brightness`
+```cat /sys/class/backlight/intel_backlight/max_brightness```
 The integer that will get printed in the terminal is the number you need to put into
 ~/.config/rofi/scripts/menus/scripts/brightnessmenu.sh. in the lines you will see some
 placeholder tags: <x%>, you will need to calculate the percentage of your max_brightness.
 For me this would be: 416 * 0.02 for the 1st option or 416 * 0.6 for the 4th option. Now
 the script should work normally. Keep in mind you will need sudo permissions for executing
 this script as we are editing a system file.
-
+file
 ### i3layoutmenu
 This script should work out of the box if you are using i3.
 
