@@ -109,11 +109,7 @@ laptop monitor and DP-1 for my external monitor. Now just replace <monitor0> in 
 xrandrmenu.sh script with whatever output you like.
 
 ## Screenshots
-![](screens/brightnessmenu.png)
-![](screens/i3layoutmenu.png)
-![](screens/powermenu.png)
-![](screens/scrotmenu.png)
-![](screens/xrandrmenu.png)
+Follow [this link](screens/) to view some screenshots.
 
 ## Acknowledgment
 I took great inspiration for this from [vahnrr](gitlab.com/vahnrr/rofi-menus)
