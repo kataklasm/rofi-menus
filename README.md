@@ -112,13 +112,13 @@ xrandrmenu.sh script with whatever output you like.
 Follow [this link](screens/) to view some screenshots.
 
 ## Acknowledgment
-I took great inspiration for this from [vahnrr](gitlab.com/vahnrr/rofi-menus)
+I took great inspiration for this from [vahnrr](https://gitlab.com/vahnrr/rofi-menus)
 
 Some other cool rofi menus:
-* [vahnrr's rofi-menus](gitlab.com/vahnrr/rofi-menus)
-* [pandozer's rofi-clipboard-manager](bitbucket.org/pandozer/rofi-clipboard-manager)
+* [vahnrr's rofi-menus](https://gitlab.com/vahnrr/rofi-menus)
+* [pandozer's rofi-clipboard-manager](https://bitbucket.org/pandozer/rofi-clipboard-manager)
 
 ## Meta
 Marius Cramer – marcramer[at]pm[dot]me
 
-[cramermarius/rofi-menus](github.com/cramermarius/rofi-menus)
+[cramermarius/rofi-menus](https://github.com/cramermarius/rofi-menus)
